@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Noto Sans Arabic', sans-serif;
+}
+
+/* RTL support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+/* Ensure proper text alignment for buttons and form elements */
+[dir="rtl"] button,
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+  text-align: right;
+}
+
+/* Fix flex direction for RTL */
+[dir="rtl"] .flex {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .flex-col {
+  flex-direction: column;
+}
+
+/* Ensure proper spacing for RTL */
+[dir="rtl"] .gap-2 > * + * {
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .gap-3 > * + * {
+  margin-right: 0.75rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .gap-4 > * + * {
+  margin-right: 1rem;
+  margin-left: 0;
+}
+
+/* Override for specific flex containers that should maintain LTR */
+[dir="rtl"] .flex-ltr {
+  flex-direction: row;
+}
+
+/* Simple dark mode: inverts the page, keeps images natural. Replace with real dark: variants later. */
+html.dark { filter: invert(1) hue-rotate(180deg); background: #fff; }
+html.dark img, html.dark video { filter: invert(1) hue-rotate(180deg); }
